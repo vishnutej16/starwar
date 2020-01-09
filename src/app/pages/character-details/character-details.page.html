@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/characters"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Character Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="character" class="about-header">
+    <img src="assets/img/user.png" alt="image">
+  </div>
+  <ion-list *ngIf="character">
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Name: </ion-label>
+      <ion-input type="text" value="{{character.name}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Height: </ion-label>
+      <ion-input type="text" value="{{character.height}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Mass: </ion-label>
+      <ion-input type="text" value="{{character.mass}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Hair Color: </ion-label>
+      <ion-input type="text" value="{{character.hair_color}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Skin Color: </ion-label>
+      <ion-input type="text" value="{{character.skin_color}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Eye Color: </ion-label>
+      <ion-input type="text" value="{{character.eye_color}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Birth Year: </ion-label>
+      <ion-input type="text" value="{{character.birth_year}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"> Gender: </ion-label>
+      <ion-input type="text" value="{{character.gender}}" readonly></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

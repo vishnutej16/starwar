@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="queryText" (ionInput)="getItems($event)" placeholder="Search"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngIf="items.length > 0">
+    <ion-item *ngFor="let item of items" (click)="goToPage(item.url)">
+      <ion-label>
+        {{ item.name }}
+      </ion-label>
+    </ion-item>
+    <div style="text-align: center; margin-top: 20px;">
+      <ion-button [style.visibility]="hasScrollbar ? 'hidden' : 'visible'" (click)="incrementItemList()">Load more items
+      </ion-button>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more items..">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
